@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
         form.reset();
         
         // Redireciona após 1 segundo
-        setTimeout(() => {
+        /*setTimeout(() => {
           window.location.href = "https://obrigado.arck1pro.com.br/";
-        }, 1000);
+        }, 1000);*/
       } else {
         throw new Error('Erro ao enviar formulário');
       }
