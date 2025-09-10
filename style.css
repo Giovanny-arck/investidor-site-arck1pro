@@ -2,10 +2,11 @@
 /* 1. Reset, Variáveis e Estilos Base            */
 /* --------------------------------------------- */
 :root {
-    --primary-color: #400140;
+    --primary-color: #071F3A;
     --light-gray-bg: #fafafa;
     --white-bg: #ffffff;
     --text-dark: #1f2937; /* Cor de texto padrão */
+    --button-grey: #16A34A;
 }
 
 * {
@@ -188,7 +189,7 @@ body {
   height: 45px;
   border-radius: 8px;
   border: none;
-  background-color: var(--primary-color);
+  background-color: var(--button-grey);
   color: white;
   font-weight: 600;
   font-size: 14px;
@@ -300,7 +301,7 @@ body {
 }
 
 .register-button {
-    background-color: var(--primary-color);
+    background-color: var(--button-grey);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
