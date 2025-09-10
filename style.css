@@ -377,10 +377,16 @@ body {
 }
 
 /* NOVO: Estilo específico para o logo do organizador não ser cortado */
+.organizer-section .presenter-photo-container {
+    background-color: var(--primary-color); /* Fundo do círculo na cor primária (azul escuro) */
+    border: none; /* Remove a borda branca se houver */
+}
+
 .organizer-section .presenter-photo {
-    object-fit: contain; /* Garante que o logo apareça inteiro */
-    width: 80%; /* Reduz o tamanho do logo para ter uma margem */
-    height: 80%; /* Reduz o tamanho do logo para ter uma margem */
+    object-fit: contain; /* Garante que o logo inteiro seja visível */
+    padding: 10%; /* Adiciona um pequeno padding interno para o logo não colar nas bordas */
+    width: 100%; /* Ocupa 100% da largura do container, respeitando o padding */
+    height: 100%; /* Ocupa 100% da altura do container, respeitando o padding */
 }
 
 .social-links-column { 
