@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     try {
       // Simulação de envio para webhooks
-      const response1 = await fetch('https://n8nwebhook.arck1pro.shop/webhook/lp-rd', {
+      const response1 = await fetch('https://n8nwebhook.arck1pro.shop/webhook/site-arck1pro', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         body: JSON.stringify(formData)
       });
       
-      const response2 = await fetch('https://n8nwebhook.arck1pro.shop/webhook/lp-ari-rdstationcrm', {
+      const response2 = await fetch('https://n8nwebhook.arck1pro.shop/webhook/lp-site-arck-investidor', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,15 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (response1.ok && response2.ok) {
         
-        alert('Cadastro realizado com sucesso. Redirecionando...');
+        alert('Cadastro realizado com sucesso. Em breve você receberá uma mensagem da nossa equipe!');
         
         // Limpa o formulário
         form.reset();
         
-        // Redireciona após 1 segundo
-        /*setTimeout(() => {
-          window.location.href = "https://obrigado.arck1pro.com.br/";
-        }, 1000);*/
       } else {
         throw new Error('Erro ao enviar formulário');
       }
