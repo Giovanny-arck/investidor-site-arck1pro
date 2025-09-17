@@ -29,6 +29,16 @@ body {
   color: white; /* Cor padrão alterada por seções */
   background-color: #f0f0f0;
 }
+
+/* Adiciona margem à esquerda do logo na barra de navegação */
+.navbar-brand {
+  margin-left: 5rem; /* Ajuste este valor se precisar de mais ou menos espaço */
+}
+
+/* Adiciona margem à direita do menu de navegação */
+.navbar-nav {
+  margin-right: 2rem; /* Ajuste este valor se precisar de mais ou menos espaço */
+}
   
 /* ============================================= */
 /* 2. Estilos da Seção Hero (Topo do Site)       */
