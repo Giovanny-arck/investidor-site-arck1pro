@@ -560,3 +560,23 @@ body {
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+/* ============================================= */
+/* 7. AJUSTES PARA BIBLIOTECA DE TELEFONE        */
+/* ============================================= */
+
+/* Garante que o container da biblioteca ocupe 100% da largura */
+.iti {
+  width: 100%;
+}
+
+/* Ajusta a altura do input para corresponder aos outros campos */
+.iti .form-input {
+  height: 45px;
+}
+/* ============================================= */
+/* 8. CORREÇÃO COR DO TEXTO DROPDOWN TELEFONE    */
+/* ============================================= */
+.iti__country-name,
+.iti__dial-code {
+  color: var(--text-dark); /* Usa a variável de cor de texto escura já definida */
+}
