@@ -580,3 +580,22 @@ body {
 .iti__dial-code {
   color: var(--text-dark); /* Usa a variável de cor de texto escura já definida */
 }
+/* ============================================= */
+/* 9. AJUSTE DO MENU HAMBÚRGUER NO MOBILE        */
+/* ============================================= */
+@media (max-width: 991px) {
+  .navbar-brand {
+    margin-left: 1rem; /* Reduz a margem da logo em telas menores */
+  }
+
+  /* Ajusta a margem do botão do menu para dar espaço */
+  .navbar-toggler {
+    margin-right: 1rem;
+  }
+
+  /* Centraliza os itens quando o menu estiver aberto */
+  .navbar-nav {
+    margin-right: 0;
+    text-align: center;
+  }
+}
