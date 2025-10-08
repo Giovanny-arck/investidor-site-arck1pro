@@ -542,12 +542,16 @@ body {
     .presenter-text-column, .organizer-text-column { padding-left: 2rem; }
     .credentials-grid { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: repeat(3, 1fr); }
+    .logo-img { max-width: 600px; margin-top: 50px; }
 }
 
 /* xl: 1280px */
 @media (min-width: 1280px) {
     .learn-section, .who-is-it-for-section, .what-it-is-not-section, .why-invest-section, .organizer-section, .presenter-section, .why-we-do-it-section { padding: 5rem 1rem; }
     .presenter-photo-container { width: 18rem; height: 18rem; }
+}
+@media (max-width: 768px) {
+  .logo-img { margin-top: 50px;}
 }
 /* ============================================= */
 /* 6. CORREÇÃO MENU HAMBÚRGUER                   */
