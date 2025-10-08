@@ -2,41 +2,48 @@ document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('register-form');
   const submitButton = document.getElementById('submit-button');
   
-  // Formatando o campo de WhatsApp
-  const whatsappInput = document.querySelector('input[name="whatsapp"]');
-  whatsappInput.addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (!value.startsWith('55')) {
-      value = '55' + value;
-    }
-    e.target.value = '+' + value.slice(0, 13);
+  // --- INICIALIZAÇÃO DA BIBLIOTECA DE TELEFONE ---
+  const phoneInput = document.querySelector("#phone");
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "br", // Define o país inicial (Brasil)
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
   });
-  
+  // -------------------------------------------------
+
   // Envio do formulário
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     
+    // Validação para ver se o número de telefone é válido
+    if (!iti.isValidNumber()) {
+      alert('Por favor, insira um número de telefone válido.');
+      return;
+    }
+
+    // Pega o número completo no formato internacional (ex: +5511999999999)
+    const fullPhoneNumber = iti.getNumber();
+
     const formData = {
       nome: form.nome.value,
       email: form.email.value,
-      whatsapp: form.whatsapp.value,
-      // NOVO CAMPO ADICIONADO AOS DADOS
+      // Envia o número já formatado (DDI + DDD + Numero)
+      whatsapp: fullPhoneNumber,
       profissao: form.profissao.value, 
       valor_investimento: form.valor_investimento.value
     };
     
-    // Validação atualizada
-    if (!formData.nome || !formData.email || !formData.whatsapp || formData.whatsapp.length < 14 || !formData.profissao || !formData.valor_investimento) {
+    // Validação dos outros campos
+    if (!formData.nome || !formData.email || !formData.profissao || !formData.valor_investimento) {
       alert('Por favor, preencha todos os campos obrigatórios corretamente.');
       return;
     }
     
-    // Simulando envio
+    // Desabilitando o botão durante o envio
     submitButton.disabled = true;
     submitButton.textContent = 'ENVIANDO...';
     
     try {
-      // Simulação de envio para webhooks
+      // Envio para os webhooks
       const response1 = await fetch('https://n8nwebhook.arck1pro.shop/webhook/site-arck1pro', {
         method: 'POST',
         headers: {
@@ -54,14 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       if (response1.ok && response2.ok) {
-        
         alert('Cadastro realizado com sucesso. Em breve você receberá uma mensagem da nossa equipe!');
-        
-        // Limpa o formulário
         form.reset();
-        
+        iti.setCountry("br"); // Reseta o seletor para o Brasil
       } else {
-        throw new Error('Erro ao enviar formulário');
+        throw new Error('Erro ao enviar formulário para um ou ambos os webhooks');
       }
     } catch (error) {
       alert('Ocorreu um erro ao enviar o cadastro. Tente novamente.');
